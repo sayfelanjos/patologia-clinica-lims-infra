@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: basic-routing
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx-example
+  rules:
+    - host: adac1b8eaf3934cd3b300bcd760c412e-ba5435fd08ddd092.elb.sa-east-1.amazonaws.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service: 
+                name: nginx-deployment-example-nodeport
+                port: 
+                  number: 80

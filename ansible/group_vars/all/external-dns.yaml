@@ -1,0 +1,10 @@
+cluster_name: patologia-clinica-lims
+log_level: error
+provider: aws
+aws_zone_type: public
+interval: 1m
+route53_zone_id: Z06504213G2FJ6POPSN7T
+external_dns_replicas: 2
+external_dns:
+  image: "registry.k8s.io/external-dns/external-dns"
+  tag: "v0.14.0"
